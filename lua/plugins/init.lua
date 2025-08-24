@@ -1,8 +1,34 @@
 return {
   {
     "stevearc/conform.nvim",
-    -- event = 'BufWritePre', -- uncomment for format on save
+    event = 'BufWritePre', -- uncomment for format on save
     opts = require "configs.conform",
+  },
+
+  {
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    opts = {
+      ensure_installed = {
+        "lua",
+        "vim",
+        "vimdoc",
+        "query",
+        "markdown",
+        "markdown_inline",
+        "c",
+        "cpp",
+        "python",
+        "javascript",
+        "html",
+        "css",
+        "json",
+      },
+      sync_install = false,
+      auto_install = true,
+      highlight = { enable = true },
+      indent = { enable = true },
+    }
   },
 
   -- These are some examples, uncomment them if you want to see them work!
@@ -26,16 +52,12 @@ return {
     end
   },
 
-  -- test new blink
-  -- { import = "nvchad.blink.lazyspec" },
-
-  -- {
-  -- 	"nvim-treesitter/nvim-treesitter",
-  -- 	opts = {
-  -- 		ensure_installed = {
-  -- 			"vim", "lua", "vimdoc",
-  --      "html", "css"
-  -- 		},
-  -- 	},
-  -- },
+  {
+    "MeanderingProgrammer/render-markdown.nvim",
+    ft = { 'markdown', 'quarto' },
+    dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' },
+    opts = {
+      render_modes = true,
+    },
+  }
 }
