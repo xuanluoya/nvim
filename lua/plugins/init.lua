@@ -8,35 +8,19 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
-    opts = {
-      ensure_installed = {
-        "lua",
-        "vim",
-        "vimdoc",
-        "query",
-        "markdown",
-        "markdown_inline",
-        "c",
-        "cpp",
-        "python",
-        "javascript",
-        "html",
-        "css",
-        "json",
-      },
-      sync_install = false,
-      auto_install = true,
-      highlight = { enable = true },
-      indent = { enable = true },
-    }
+    opts = require "configs.nvim-treesitter",
   },
 
-  -- These are some examples, uncomment them if you want to see them work!
   {
     "neovim/nvim-lspconfig",
     config = function()
       require "configs.lspconfig"
     end,
+  },
+
+  {
+    "nvim-tree/nvim-tree.lua",
+    opts = require "configs.nvim-tree"
   },
 
   {
@@ -59,5 +43,13 @@ return {
     opts = {
       render_modes = true,
     },
+  },
+
+  {
+    "Mythos-404/xmake.nvim",
+    version = "^3",
+    lazy = true,
+    event = "BufReadPost",
+    config = true,
   }
 }
