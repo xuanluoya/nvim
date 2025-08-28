@@ -24,6 +24,11 @@ return {
   },
 
   {
+    "rose-pine/neovim",
+    name = "rose-pine",
+  },
+
+  {
     "mg979/vim-visual-multi",
     branch = "master",
     event = "VeryLazy",
@@ -46,10 +51,8 @@ return {
   },
 
   {
-    "Mythos-404/xmake.nvim",
-    version = "^3",
-    lazy = true,
-    event = "BufReadPost",
-    config = true,
+    "3rd/image.nvim",
+    event = "VeryLazy",
+    opts = require "configs.image"
   }
 }
