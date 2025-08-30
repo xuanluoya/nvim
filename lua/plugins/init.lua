@@ -1,58 +1,14 @@
 return {
-  {
-    "stevearc/conform.nvim",
-    event = 'BufWritePre', -- uncomment for format on save
-    opts = require "configs.conform",
-  },
+  { "rose-pine/neovim",                 name = "rose-pine" },
 
-  {
-    "nvim-treesitter/nvim-treesitter",
-    build = ":TSUpdate",
-    opts = require "configs.nvim-treesitter",
-  },
+  { "stevearc/conform.nvim",            event = "BufWritePre",                              opts = require "configs.conform" },
+  { "nvim-treesitter/nvim-treesitter",  build = ":TSUpdate",                                opts = require "configs.nvim-treesitter" },
+  { "neovim/nvim-lspconfig",            config = function() require "configs.lspconfig" end },
+  { "nvim-tree/nvim-tree.lua",          opts = require "configs.nvim-tree" },
 
-  {
-    "neovim/nvim-lspconfig",
-    config = function()
-      require "configs.lspconfig"
-    end,
-  },
-
-  {
-    "nvim-tree/nvim-tree.lua",
-    opts = require "configs.nvim-tree"
-  },
-
-  {
-    "rose-pine/neovim",
-    name = "rose-pine",
-  },
-
-  {
-    "mg979/vim-visual-multi",
-    branch = "master",
-    event = "VeryLazy",
-    init = function()
-      vim.g.VM_maps = {
-        ["Select Cursor Down"] = "<C-j>",
-        ["Select Cursor Up"]   = "<C-k>",
-        ["Find Under"]         = "<C-d>",
-      }
-    end
-  },
-
-  {
-    "MeanderingProgrammer/render-markdown.nvim",
-    ft = { 'markdown', 'quarto' },
-    dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' },
-    opts = {
-      render_modes = true,
-    },
-  },
-
-  {
-    "3rd/image.nvim",
-    event = "VeryLazy",
-    opts = require "configs.image"
-  }
+  { import = "plugins.neoscroll" },
+  { import = "plugins.smear_cursor" },
+  { import = "plugins.vim-visual-multi" },
+  { import = "plugins.render-markdown" },
+  { import = "plugins.image" },
 }
