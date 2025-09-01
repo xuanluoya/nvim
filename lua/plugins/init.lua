@@ -6,9 +6,9 @@ return {
   { "neovim/nvim-lspconfig",            config = function() require "configs.lspconfig" end },
   { "nvim-tree/nvim-tree.lua",          opts = require "configs.nvim-tree" },
 
+  { import = "plugins.vim-visual-multi" },
   { import = "plugins.neoscroll" },
   { import = "plugins.smear_cursor" },
-  { import = "plugins.vim-visual-multi" },
   { import = "plugins.render-markdown" },
   { import = "plugins.image" },
 }
